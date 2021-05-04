@@ -56,25 +56,47 @@ def show(verts):
 	ax.set_ylim(-2, 2)
 	plt.show()
 
-def circle(r):
+def circle():
 	p = 3.14 * r * r
 	o = 2 * 3.14 * r
 
-def trapezeField(a,b, c, h):
+def trapeze():
 	p = ((a + b) * h) / 2
 
 	o = (a + b + c + d)
 
-def square(a):
+def square():
 	p = a * a
 	o =  a * 4
 
-def rectangleField(a, b):
+def rectangle():
 	p = a * b
 	o = (2 * a) + (2 * b)
 
-def triangleField(a, b, c, h):
+def triangle():
 	p = (a * h) / 2
 	o = a + b + c
 
+def information():
+	print("My name is Damian")
+def switch(x):
+	return {
+		1: triangle(),
+		2: rectangle(),
+		3: square(),
+		4: circle(),
+		5: trapeze(),
+		6: information(),
+		7: exit()
+	}.get(x,"not found")
+
 show()
+print("Menu")
+print("Wybierz jaka figure chcesz obliczyc lub inna opcje")
+print("1. Trojkat")
+print("2. Prostokat")
+print("3. Kwadrat")
+print("4. Kolo")
+print("5. Trapez")
+print("6. Informacje o tworcy")
+print("7. Exit")
