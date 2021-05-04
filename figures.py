@@ -57,12 +57,25 @@ def show(verts):
 	plt.show()
 
 def circle():
+	pront("Podaj promien: ")
+	r = int(input())
+	print("Podaj środek koła: ")
+	print("x: ")
+	x = int(input())
+	print("y: ")
+	y = int(input())
+	a = (x, y)
 	p = 3.14 * r * r
 	o = 2 * 3.14 * r
+	circle1 = plt.Circle(a, r, colour = "red")
+	fig, ax = plt.subplots()
+	ax.add_patch(circle1)
+	fig.savefig('plotcircles.png')
+	print("P= ", p)
+	print("O= ", o)
 
 def trapeze():
 	p = ((a + b) * h) / 2
-
 	o = (a + b + c + d)
 
 def square():
