@@ -25,6 +25,36 @@ Powinien mieć:
 	f. Informacje o twórcy
 	g. Wyjście
 '''
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from matplotlib.path import Path
+import matplotlib.patches as patches
+
+def show():
+	verts = [
+	(0., 0.),  # left, bottom
+	(0., 1.),  # left, top
+	(1., 1.),  # right, top
+	(1., 0.),  # right, bottom
+	(0., 0.),  # ignored
+	]
+
+	codes = [
+		Path.MOVETO,
+		Path.LINETO,
+		Path.LINETO,
+		Path.LINETO,
+		Path.CLOSEPOLY,
+	]
+
+	path = Path(verts, codes)
+
+	fig, ax = plt.subplots()
+	patch = patches.PathPatch(path, facecolor='orange', lw=2)
+	ax.add_patch(patch)
+	ax.set_xlim(-2, 2)
+	ax.set_ylim(-2, 2)
+	plt.show()
 
 def circleField(r):
 	return (3.14 * r * r)
@@ -50,3 +80,5 @@ def triangleField(a, h):
 	return (a * h) / 2
 def circumferenceOfATriangle(a, b, c):
 	return a + b + c
+
+show()
