@@ -30,7 +30,7 @@ import matplotlib.pyplot as plt
 from matplotlib.path import Path
 import matplotlib.patches as patches
 
-def show():
+def show(verts):
 	verts = [
 	(0., 0.),  # left, bottom
 	(0., 1.),  # left, top
@@ -56,29 +56,25 @@ def show():
 	ax.set_ylim(-2, 2)
 	plt.show()
 
-def circleField(r):
-	return (3.14 * r * r)
-def circumferenceOfACircle(r):
-	return (2 * 3.14 * r)
+def circle(r):
+	p = 3.14 * r * r
+	o = 2 * 3.14 * r
 
-def ctrapezeField(a,b,h):
-	return ((a + b) * h) / 2
-def circumferenceOfATrapeze(a, b, c, d):
-	return (a + b + c + d)
+def trapezeField(a,b, c, h):
+	p = ((a + b) * h) / 2
 
-def squareField(a):
-	return a * a
-def circumferenceOfASquare(a):
-	return a * 4
+	o = (a + b + c + d)
+
+def square(a):
+	p = a * a
+	o =  a * 4
 
 def rectangleField(a, b):
-	return a * b
-def circumferenceOfARectangle(a, b):
-	return (2 * a) + (2 * b)
+	p = a * b
+	o = (2 * a) + (2 * b)
 
-def triangleField(a, h):
-	return (a * h) / 2
-def circumferenceOfATriangle(a, b, c):
-	return a + b + c
+def triangleField(a, b, c, h):
+	p = (a * h) / 2
+	o = a + b + c
 
 show()
