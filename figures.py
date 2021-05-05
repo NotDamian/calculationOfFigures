@@ -45,9 +45,30 @@ def circle():
 	ax.add_patch(circle1)
 	fig.savefig('plotcircles.png')
 	print("P= ", p)
-	print("O= ", o)
+	print("Ob= ", o)
 
 def trapeze():
+	print("Podaj wierzcholek A: ")
+	print("x: ")
+	xA = int(input())
+	print("y: ")
+	yA = int(input())
+	print("Podaj wierzcholek B: ")
+	print("x: ")
+	xB = int(input())
+	print("y: ")
+	yB = int(input())
+	print("Podaj wierzcholek C: ")
+	print("x: ")
+	xC = int(input())
+	print("y: ")
+	yC = int(input())
+	print("Podaj wierzcholek D: ")
+	print("x: ")
+	xD = int(input())
+	print("y: ")
+	yD = int(input())
+
 	p = ((a + b) * h) / 2
 	o = (a + b + c + d)
 
@@ -72,7 +93,10 @@ def square():
 	xD = int(input())
 	print("y: ")
 	yD = int(input())
-	a = xA - xB
+	if xA == xB:
+		a = yA - yB
+	else:
+		a = xA - xB
 	if a < 0:
 		a = -a
 	p = a * a
@@ -99,8 +123,14 @@ def rectangle():
 	xD = int(input())
 	print("y: ")
 	yD = int(input())
-	a = xA - xB
-	b = yB - yC
+	if xA == xB:
+		a = yA - yB
+	else:
+		a = xA - xB
+	if yB == yC:
+		a = xB - xC
+	else:
+		b = yB - yC
 	if a < 0:
 		a = -a
 	if b < 0:
@@ -109,6 +139,22 @@ def rectangle():
 	o = (2 * a) + (2 * b)
 
 def triangle():
+	print("Podaj wierzcholek A: ")
+	print("x: ")
+	xA = int(input())
+	print("y: ")
+	yA = int(input())
+	print("Podaj wierzcholek B: ")
+	print("x: ")
+	xB = int(input())
+	print("y: ")
+	yB = int(input())
+	print("Podaj wierzcholek C: ")
+	print("x: ")
+	xC = int(input())
+	print("y: ")
+	yC = int(input())
+
 	p = (a * h) / 2
 	o = a + b + c
 
