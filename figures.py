@@ -1,36 +1,9 @@
-'''
-Projekt Python
-Napisać skrypt który po uruchomieniu będzie umożliwiał nam obliczenie obwodu, pola takich figur jak:
-- trójkąt
-- prostokąt kk
-- kwadrat kk
-- koło kk
-- trapez kk
-oraz wyświetlenie figur na układzie współrzędnym. Układ współrzędny musi być przedstawiony graficznie, reszta może pokazywać w terminalu.
-
-
-Przykład:
-1. Wybieramy figurę do obliczenia
-2. Podajemy dane figury A(x,y), B(x,y), C(x,y)
-3. Wysiedla się nam graficzne przestawienie figury na układzie współrzędnym
-4. Obliczamy długości potrzebne do podania obwodu i pola
-
-Powinien mieć:
-1. Menu
-	a. Trójkąt
-	b. Prostokąt
-	c. Kwadrat
-	d. Koło
-	e. Trapez
-	f. Informacje o twórcy
-	g. Wyjście
-'''
 import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 from matplotlib.path import Path
 import matplotlib.patches as patches
 
-def show(verts):
+def show():
 	verts = [
 	(0., 0.),  # left, bottom
 	(0., 1.),  # left, top
@@ -57,7 +30,7 @@ def show(verts):
 	plt.show()
 
 def circle():
-	pront("Podaj promien: ")
+	print("Podaj promien: ")
 	r = int(input())
 	print("Podaj środek koła: ")
 	print("x: ")
@@ -80,7 +53,7 @@ def trapeze():
 
 def square():
 	p = a * a
-	o =  a * 4
+	o = a * 4
 
 def rectangle():
 	p = a * b
@@ -92,6 +65,7 @@ def triangle():
 
 def information():
 	print("My name is Damian")
+
 def switch(x):
 	return {
 		1: triangle(),
@@ -103,7 +77,7 @@ def switch(x):
 		7: exit()
 	}.get(x,"not found")
 
-show()
+'''show()'''
 print("Menu")
 print("Wybierz jaka figure chcesz obliczyc lub inna opcje")
 print("1. Trojkat")
@@ -113,3 +87,5 @@ print("4. Kolo")
 print("5. Trapez")
 print("6. Informacje o tworcy")
 print("7. Exit")
+x = int(input())
+switch(x)
