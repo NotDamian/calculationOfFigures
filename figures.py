@@ -52,10 +52,59 @@ def trapeze():
 	o = (a + b + c + d)
 
 def square():
+	print("Podaj wierzcholek A: ")
+	print("x: ")
+	xA = int(input())
+	print("y: ")
+	yA = int(input())
+	print("Podaj wierzcholek B: ")
+	print("x: ")
+	xB = int(input())
+	print("y: ")
+	yB = int(input())
+	print("Podaj wierzcholek C: ")
+	print("x: ")
+	xC = int(input())
+	print("y: ")
+	yC = int(input())
+	print("Podaj wierzcholek D: ")
+	print("x: ")
+	xD = int(input())
+	print("y: ")
+	yD = int(input())
+	a = xA - xB
+	if a < 0:
+		a = -a
 	p = a * a
 	o = a * 4
 
 def rectangle():
+	print("Podaj wierzcholek A: ")
+	print("x: ")
+	xA = int(input())
+	print("y: ")
+	yA = int(input())
+	print("Podaj wierzcholek B: ")
+	print("x: ")
+	xB = int(input())
+	print("y: ")
+	yB = int(input())
+	print("Podaj wierzcholek C: ")
+	print("x: ")
+	xC = int(input())
+	print("y: ")
+	yC = int(input())
+	print("Podaj wierzcholek D: ")
+	print("x: ")
+	xD = int(input())
+	print("y: ")
+	yD = int(input())
+	a = xA - xB
+	b = yB - yC
+	if a < 0:
+		a = -a
+	if b < 0:
+		b = -b
 	p = a * b
 	o = (2 * a) + (2 * b)
 
