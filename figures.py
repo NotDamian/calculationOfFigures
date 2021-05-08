@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 from matplotlib.path import Path
 import matplotlib.patches as patches
+import math
 
 def show():
 	verts = [
@@ -154,6 +155,45 @@ def triangle():
 	xC = int(input())
 	print("y: ")
 	yC = int(input())
+
+	#obliczany bok a
+	if xA == xB:
+		a = yA - yB
+	if a < 0:
+		a = -a
+	if yA == yB:
+		a = xA - xB
+	if a < 0:
+		a = -a
+	if xA != xB and yA != yB:
+		a = sqr((xA - xB)**2 + (yA - yB)**2)
+		
+	#obliczany bok b
+	if xA == xC:
+		b = yA - yC
+	if b < 0:
+		b = -b
+	if yA == yC:
+		b = xA - xC
+	if b < 0:
+		b = -b
+	if xA != xC and yA != yC:
+		b = sqr((xA - xC)**2 + (yA - yC)**2)
+
+	#obliczany bok c
+	if xC == xB:
+		c = yC - yB
+	if c < 0:
+		c = -c
+	if yC == yB:
+		c = xC - xB
+	if c < 0:
+		c = -c
+	if xC != xB and yC != yB:
+		c = sqr((xC - xB)**2 + (yC - yB)**2)
+
+	h = 
+		
 
 	p = (a * h) / 2
 	o = a + b + c
