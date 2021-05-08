@@ -192,11 +192,10 @@ def triangle():
 	if xC != xB and yC != yB:
 		c = sqr((xC - xB)**2 + (yC - yB)**2)
 
-	h = 
-		
-
-	p = (a * h) / 2
+	
 	o = a + b + c
+	#obliczamy pole trojkata z wzoru herona
+	p = sqr(o * (o - a) * (o - b) * (o -c)) 
 
 def information():
 	print("My name is Damian")
