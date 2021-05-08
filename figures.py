@@ -70,10 +70,51 @@ def trapeze():
 	print("y: ")
 	yD = int(input())
 
+	#obliczany bok a
+	if xA == xB:
+		a = yA - yB
+	if yA == yB:
+		a = xA - xB
+	if a < 0:
+		a = -a
+	if xA != xB and yA != yB:
+		a = sqr((xA - xB)**2 + (yA - yB)**2)
+	
+	#obliczany bok b
+	if xB == xC:
+		b = yB - yC
+	if yB == yC:
+		b = xB - xC
+	if b < 0:
+		b = -b
+	if xB != xC and yB != yC:
+		b = sqr((xB - xC)**2 + (yB - yC)**2)
+
+	#obliczany bok c
+	if xC == xD:
+		c = yC - yD
+	if yC == yD:
+		c = xC - xD
+	if c < 0:
+		c = -c
+	if xC != xD and yC != yD:
+		c = sqr((xC - xD)**2 + (yC - yD)**2)
+
+	#obliczany bok d
+	if xD == xA:
+		d = yD - yA
+	if yD == yA:
+		d = xD - xA
+	if d < 0:
+		d = -d
+	if xD != xA and yD != yA:
+		d = sqr((xD - xA)**2 + (yD - yAś)**2)
+		
+	
 	
 
-	p = ((a + b) * h) / 2
 	o = (a + b + c + d)
+	p = ((a + b) * h) / 2
 
 def square():
 	print("Podaj wierzcholek A: ")
@@ -161,8 +202,6 @@ def triangle():
 	#obliczany bok a
 	if xA == xB:
 		a = yA - yB
-	if a < 0:
-		a = -a
 	if yA == yB:
 		a = xA - xB
 	if a < 0:
@@ -173,8 +212,6 @@ def triangle():
 	#obliczany bok b
 	if xA == xC:
 		b = yA - yC
-	if b < 0:
-		b = -b
 	if yA == yC:
 		b = xA - xC
 	if b < 0:
@@ -185,8 +222,6 @@ def triangle():
 	#obliczany bok c
 	if xC == xB:
 		c = yC - yB
-	if c < 0:
-		c = -c
 	if yC == yB:
 		c = xC - xB
 	if c < 0:
