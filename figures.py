@@ -70,6 +70,8 @@ def trapeze():
 	print("y: ")
 	yD = int(input())
 
+	
+
 	p = ((a + b) * h) / 2
 	o = (a + b + c + d)
 
