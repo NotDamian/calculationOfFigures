@@ -41,6 +41,7 @@ def circle():
 	a = (x, y)
 	p = 3.14 * r * r
 	o = 2 * 3.14 * r
+	#rysowanie kola
 	circle1 = plt.Circle(a, r, colour = "red")
 	fig, ax = plt.subplots()
 	ax.add_patch(circle1)
@@ -69,6 +70,7 @@ def trapeze():
 	xD = int(input())
 	print("y: ")
 	yD = int(input())
+
 
 	#obliczany bok a
 	if xA == xB:
@@ -108,13 +110,21 @@ def trapeze():
 	if d < 0:
 		d = -d
 	if xD != xA and yD != yA:
-		d = sqr((xD - xA)**2 + (yD - yAś)**2)
+		d = sqr((xD - xA)**2 + (yD - yA)**2)
 		
-	
+	verts = [
+	(xA, yA),  # left, bottom
+	(xB, yB),  # left, top
+	(xC, yC),  # right, top
+	(xD, yD),  # right, bottom
+	(0., 0.),  # ignored
+	]
 	
 
 	o = (a + b + c + d)
 	p = ((a + b) * h) / 2
+	print("P= ", p)
+	print("Ob= ", o)
 
 def square():
 	print("Podaj wierzcholek A: ")
@@ -143,8 +153,19 @@ def square():
 		a = xA - xB
 	if a < 0:
 		a = -a
+
+	verts = [
+	(xA, yA),  # left, bottom
+	(xB, yB),  # left, top
+	(xC, yC),  # right, top
+	(xD, yD),  # right, bottom
+	(0., 0.),  # ignored
+	]
+
 	p = a * a
 	o = a * 4
+	print("P= ", p)
+	print("Ob= ", o)
 
 def rectangle():
 	print("Podaj wierzcholek A: ")
@@ -179,8 +200,19 @@ def rectangle():
 		a = -a
 	if b < 0:
 		b = -b
+
+	verts = [
+	(xA, yA),  # left, bottom
+	(xB, yB),  # left, top
+	(xC, yC),  # right, top
+	(xD, yD),  # right, bottom
+	(0., 0.),  # ignored
+	]
+
 	p = a * b
 	o = (2 * a) + (2 * b)
+	print("P= ", p)
+	print("Ob= ", o)
 
 def triangle():
 	print("Podaj wierzcholek A: ")
@@ -229,10 +261,29 @@ def triangle():
 	if xC != xB and yC != yB:
 		c = sqr((xC - xB)**2 + (yC - yB)**2)
 
-	
+	#rysowanie trojkata
+	x=np.array([xA,xB,xC,xA])
+	y=np.array([yA,yB,yC,yA])
+	# Figure and Axes
+	fig1=plt.figure(1)
+	ax1=fig1.add_subplot(111)
+	# Plot Triangle 1 
+	ax1.axis('square')
+	plt.plot(x,y,color=[0/255,176/255,80/255])
+	# Axes Limits
+	plt.xlim([-1,7])
+	plt.ylim([-1,7])
+	# Grid
+	plt.grid(axis='both',which='major',color=[166/255,166/255,166/255], linestyle='-', linewidth=2)
+	plt.minorticks_on()
+	plt.grid(axis='both',which='minor',color=[166/255,166/255,166/255], linestyle=':', linewidth=1)
+
+
 	o = a + b + c
 	#obliczamy pole trojkata z wzoru herona
 	p = sqr(o * (o - a) * (o - b) * (o -c)) 
+	print("P= ", p)
+	print("Ob= ", o)
 
 def information():
 	print("My name is Damian")
