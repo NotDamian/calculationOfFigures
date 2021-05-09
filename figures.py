@@ -32,22 +32,22 @@ def show():
 
 def circle():
 	print("Podaj promien: ")
-	r = int(input())
-	print("Podaj środek koła: ")
+	r = float(input())
+	print("Podaj srodek kola: ")
 	print("x: ")
-	x = int(input())
+	x = float(input())
 	print("y: ")
-	y = int(input())
+	y = float(input())
 	a = (x, y)
 	p = 3.14 * r * r
 	o = 2 * 3.14 * r
+	print("P= ", p)
+	print("Ob= ", o)
 	#rysowanie kola
-	circle1 = plt.Circle(a, r, colour = "red")
+	circle1 = plt.Circle((x,y), r, colour = "r")
 	fig, ax = plt.subplots()
 	ax.add_patch(circle1)
 	fig.savefig('plotcircles.png')
-	print("P= ", p)
-	print("Ob= ", o)
 
 def trapeze():
 	print("Podaj wierzcholek A: ")
@@ -111,6 +111,7 @@ def trapeze():
 		d = -d
 	if xD != xA and yD != yA:
 		d = sqr((xD - xA)**2 + (yD - yA)**2)
+
 		
 	verts = [
 	(xA, yA),  # left, bottom
@@ -120,9 +121,9 @@ def trapeze():
 	(0., 0.),  # ignored
 	]
 	
-
+	pp = (xA + xB) * (yB - yA) + (xB + xC) * (yC - yB) - (xC + xD) * (yD - yC) - (xC + xA) * (yA - yC)
 	o = (a + b + c + d)
-	p = ((a + b) * h) / 2
+	p = pp / 2
 	print("P= ", p)
 	print("Ob= ", o)
 
@@ -289,15 +290,25 @@ def information():
 	print("My name is Damian")
 
 def switch(x):
-	return {
-		1: triangle(),
-		2: rectangle(),
-		3: square(),
-		4: circle(),
-		5: trapeze(),
-		6: information(),
-		7: exit()
-	}.get(x,"not found")
+	if x == 1:
+		triangle()
+	elif x == 2:
+		rectangle()
+	elif x == 3:
+		square()
+	elif x == 4:
+		circle()
+	elif x == 5:
+		trapeze()
+	elif x == 6:
+		information()
+	elif x == 7:
+		exit()
+	else:
+		print("blad ")
+		print("exit ")
+		exit()
+
 
 '''show()'''
 print("Menu")
