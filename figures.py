@@ -51,8 +51,7 @@ def circle():
 	plt.grid(linestyle='--')
 	ax.set_aspect(1)
 	ax.add_artist(circle1)
-	plt.title('How to plot a circle with matplotlib ?', fontsize=8)
-	plt.savefig("plot_circle_matplotlib_02.png", bbox_inches='tight')
+	plt.title('Circle', fontsize=8)
 	plt.show()
 
 
