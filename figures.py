@@ -44,10 +44,17 @@ def circle():
 	print("P= ", p)
 	print("Ob= ", o)
 	#rysowanie kola
-	circle1 = plt.Circle((x,y), r, colour = "r")
+	circle1 = plt.Circle((x, y), r, color='r')
 	fig, ax = plt.subplots()
-	ax.add_patch(circle1)
-	fig.savefig('plotcircles.png')
+	plt.xlim((x-r-2),(x+r+2))
+	plt.ylim((y-r-2),(y+r+2))
+	plt.grid(linestyle='--')
+	ax.set_aspect(1)
+	ax.add_artist(circle1)
+	plt.title('How to plot a circle with matplotlib ?', fontsize=8)
+	plt.savefig("plot_circle_matplotlib_02.png", bbox_inches='tight')
+	plt.show()
+
 
 def trapeze():
 	print("Podaj wierzcholek A: ")
@@ -288,8 +295,22 @@ def triangle():
 
 def information():
 	print("My name is Damian")
+	switch()
+	
 
-def switch(x):
+def switch():
+	'''show()'''
+	print("Menu")
+	print("Wybierz jaka figure chcesz obliczyc lub inna opcje")
+	print("1. Trojkat")
+	print("2. Prostokat")
+	print("3. Kwadrat")
+	print("4. Kolo")
+	print("5. Trapez")
+	print("6. Informacje o tworcy")
+	print("7. Exit")
+	x = int(input())
+
 	if x == 1:
 		triangle()
 	elif x == 2:
@@ -310,15 +331,5 @@ def switch(x):
 		exit()
 
 
-'''show()'''
-print("Menu")
-print("Wybierz jaka figure chcesz obliczyc lub inna opcje")
-print("1. Trojkat")
-print("2. Prostokat")
-print("3. Kwadrat")
-print("4. Kolo")
-print("5. Trapez")
-print("6. Informacje o tworcy")
-print("7. Exit")
-x = int(input())
-switch(x)
+
+switch()
