@@ -77,8 +77,18 @@ def trapeze():
 	print("y: ")
 	yD = int(input())
 
+	#rysowanie	
+	fig = plt.figure()
+	ax = fig.add_subplot(111, aspect='equal')
+	x = [xA,xB,xC,xD]
+	y = [yA,yB,yC,yD]
+	plt.xlim((xA-2),(xB+2))
+	plt.ylim((yA-2),(yB+4))
+	ax.add_patch(patches.Polygon(xy=list(zip(x,y)), fill=False))
+	plt.show()
 
 	#obliczany bok a
+	a = 0
 	if xA == xB:
 		a = yA - yB
 	if yA == yB:
@@ -86,9 +96,10 @@ def trapeze():
 	if a < 0:
 		a = -a
 	if xA != xB and yA != yB:
-		a = sqr((xA - xB)**2 + (yA - yB)**2)
+		a = math.sqrt((xA - xB)**2 + (yA - yB)**2)
 	
 	#obliczany bok b
+	b = 0
 	if xB == xC:
 		b = yB - yC
 	if yB == yC:
@@ -96,9 +107,10 @@ def trapeze():
 	if b < 0:
 		b = -b
 	if xB != xC and yB != yC:
-		b = sqr((xB - xC)**2 + (yB - yC)**2)
+		b = math.sqrt((xB - xC)**2 + (yB - yC)**2)
 
 	#obliczany bok c
+	c = 0
 	if xC == xD:
 		c = yC - yD
 	if yC == yD:
@@ -106,9 +118,10 @@ def trapeze():
 	if c < 0:
 		c = -c
 	if xC != xD and yC != yD:
-		c = sqr((xC - xD)**2 + (yC - yD)**2)
+		c = math.sqrt((xC - xD)**2 + (yC - yD)**2)
 
 	#obliczany bok d
+	d = 0
 	if xD == xA:
 		d = yD - yA
 	if yD == yA:
@@ -116,17 +129,8 @@ def trapeze():
 	if d < 0:
 		d = -d
 	if xD != xA and yD != yA:
-		d = sqr((xD - xA)**2 + (yD - yA)**2)
+		d = math.sqrt((xD - xA)**2 + (yD - yA)**2)
 
-		
-	verts = [
-	(xA, yA),  # left, bottom
-	(xB, yB),  # left, top
-	(xC, yC),  # right, top
-	(xD, yD),  # right, bottom
-	(0., 0.),  # ignored
-	]
-	
 	pp = (xA + xB) * (yB - yA) + (xB + xC) * (yC - yB) - (xC + xD) * (yD - yC) - (xC + xA) * (yA - yC)
 	o = (a + b + c + d)
 	p = pp / 2
