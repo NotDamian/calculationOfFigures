@@ -54,7 +54,6 @@ def circle():
 	plt.title('Circle', fontsize=8)
 	plt.show()
 
-
 def trapeze():
 	print("Podaj wierzcholek A: ")
 	print("x: ")
@@ -164,14 +163,17 @@ def square():
 		a = xA - xB
 	if a < 0:
 		a = -a
+	if xA != xB and yA != yB:
+		a = math.sqrt((xA - xB)**2 + (yA - yB)**2)
 
-	verts = [
-	(xA, yA),  # left, bottom
-	(xB, yB),  # left, top
-	(xC, yC),  # right, top
-	(xD, yD),  # right, bottom
-	(0., 0.),  # ignored
-	]
+	#rysowanie 
+	fig = plt.figure()
+	plt.axes()
+	square= plt.Rectangle((xA,yA), xC-1, yC-1, fc='blue')
+	plt.gca().add_patch(square)
+	plt.xlim((xA-2),(xC+2))
+	plt.ylim((yA-2),(yC+2))
+	plt.show()
 
 	p = a * a
 	o = a * 4
@@ -199,26 +201,34 @@ def rectangle():
 	xD = int(input())
 	print("y: ")
 	yD = int(input())
+
+	#obliczamy bopk a
 	if xA == xB:
 		a = yA - yB
-	else:
+	if yA == yB:
 		a = xA - xB
-	if yB == yC:
-		a = xB - xC
-	else:
-		b = yB - yC
 	if a < 0:
 		a = -a
+	if xA != xB and yA != yB:
+		a = math.sqrt((xA - xB)**2 + (yA - yB)**2)
+	#obliczamy bok b
+	if xB == xC:
+		b = yB - yC
+	if yB == yC:
+		b = xB - xC
 	if b < 0:
 		b = -b
+	if xB != xC and yB != yC:
+		b = math.sqrt((xB - xC)**2 + (yB - yC)**2)
 
-	verts = [
-	(xA, yA),  # left, bottom
-	(xB, yB),  # left, top
-	(xC, yC),  # right, top
-	(xD, yD),  # right, bottom
-	(0., 0.),  # ignored
-	]
+	#rysowanie 
+	fig = plt.figure()
+	plt.axes()
+	rectangle = plt.Rectangle((xA,yA), xC-1, yC-1, fc='blue')
+	plt.gca().add_patch(rectangle)
+	plt.xlim((xA-2),(xC+2))
+	plt.ylim((yA-2),(yC+2))
+	plt.show()
 
 	p = a * b
 	o = (2 * a) + (2 * b)
@@ -300,7 +310,6 @@ def information():
 	print("My name is Damian")
 	switch()
 	
-
 def switch():
 	'''show()'''
 	print("Menu")
@@ -332,7 +341,5 @@ def switch():
 		print("blad ")
 		print("exit ")
 		exit()
-
-
 
 switch()
