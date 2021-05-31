@@ -3,32 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.path import Path
 import matplotlib.patches as patches
 import math
-
-def show():
-	verts = [
-	(0., 0.),  # left, bottom
-	(0., 1.),  # left, top
-	(1., 1.),  # right, top
-	(1., 0.),  # right, bottom
-	(0., 0.),  # ignored
-	]
-
-	codes = [
-		Path.MOVETO,
-		Path.LINETO,
-		Path.LINETO,
-		Path.LINETO,
-		Path.CLOSEPOLY,
-	]
-
-	path = Path(verts, codes)
-
-	fig, ax = plt.subplots()
-	patch = patches.PathPatch(path, facecolor='orange', lw=2)
-	ax.add_patch(patch)
-	ax.set_xlim(-2, 2)
-	ax.set_ylim(-2, 2)
-	plt.show()
+import numpy as np
 
 def circle():
 	print("Podaj promien: ")
@@ -92,10 +67,10 @@ def trapeze():
 		a = yA - yB
 	if yA == yB:
 		a = xA - xB
-	if a < 0:
-		a = -a
 	if xA != xB and yA != yB:
 		a = math.sqrt((xA - xB)**2 + (yA - yB)**2)
+	if a < 0:
+		a = -a
 	
 	#obliczany bok b
 	b = 0
@@ -103,10 +78,10 @@ def trapeze():
 		b = yB - yC
 	if yB == yC:
 		b = xB - xC
-	if b < 0:
-		b = -b
 	if xB != xC and yB != yC:
 		b = math.sqrt((xB - xC)**2 + (yB - yC)**2)
+	if b < 0:
+		b = -b
 
 	#obliczany bok c
 	c = 0
@@ -114,10 +89,10 @@ def trapeze():
 		c = yC - yD
 	if yC == yD:
 		c = xC - xD
-	if c < 0:
-		c = -c
 	if xC != xD and yC != yD:
 		c = math.sqrt((xC - xD)**2 + (yC - yD)**2)
+	if c < 0:
+		c = -c
 
 	#obliczany bok d
 	d = 0
@@ -125,10 +100,10 @@ def trapeze():
 		d = yD - yA
 	if yD == yA:
 		d = xD - xA
-	if d < 0:
-		d = -d
 	if xD != xA and yD != yA:
 		d = math.sqrt((xD - xA)**2 + (yD - yA)**2)
+	if d < 0:
+		d = -d
 
 	pp = (xA + xB) * (yB - yA) + (xB + xC) * (yC - yB) - (xC + xD) * (yD - yC) - (xC + xA) * (yA - yC)
 	o = (a + b + c + d)
@@ -161,10 +136,10 @@ def square():
 		a = yA - yB
 	else:
 		a = xA - xB
-	if a < 0:
-		a = -a
 	if xA != xB and yA != yB:
 		a = math.sqrt((xA - xB)**2 + (yA - yB)**2)
+	if a < 0:
+		a = -a
 
 	#rysowanie 
 	fig = plt.figure()
@@ -257,52 +232,45 @@ def triangle():
 		a = yA - yB
 	if yA == yB:
 		a = xA - xB
+	if xA != xB and yA != yB:
+		a = math.sqrt((xA - xB)**2 + (yA - yB)**2)
 	if a < 0:
 		a = -a
-	if xA != xB and yA != yB:
-		a = sqr((xA - xB)**2 + (yA - yB)**2)
 		
 	#obliczany bok b
-	if xA == xC:
-		b = yA - yC
-	if yA == yC:
-		b = xA - xC
+	if xB == xC:
+		b = yB - yC
+	if yB == yC:
+		b = xB - xC
+	if xB != xC and yB != yC:
+		b = math.sqrt((xB - xC)**2 + (yB - yC)**2)
 	if b < 0:
 		b = -b
-	if xA != xC and yA != yC:
-		b = sqr((xA - xC)**2 + (yA - yC)**2)
 
 	#obliczany bok c
 	if xC == xB:
 		c = yC - yB
 	if yC == yB:
 		c = xC - xB
+	if xC != xB and yC != yB:
+		c = math.sqrt((xC - xB)**2 + (yC - yB)**2)
 	if c < 0:
 		c = -c
-	if xC != xB and yC != yB:
-		c = sqr((xC - xB)**2 + (yC - yB)**2)
 
 	#rysowanie trojkata
-	x=np.array([xA,xB,xC,xA])
-	y=np.array([yA,yB,yC,yA])
-	# Figure and Axes
-	fig1=plt.figure(1)
-	ax1=fig1.add_subplot(111)
-	# Plot Triangle 1 
-	ax1.axis('square')
-	plt.plot(x,y,color=[0/255,176/255,80/255])
-	# Axes Limits
-	plt.xlim([-1,7])
-	plt.ylim([-1,7])
-	# Grid
-	plt.grid(axis='both',which='major',color=[166/255,166/255,166/255], linestyle='-', linewidth=2)
-	plt.minorticks_on()
-	plt.grid(axis='both',which='minor',color=[166/255,166/255,166/255], linestyle=':', linewidth=1)
+	from matplotlib.patches import Polygon
+	pts = np.array([[xA,yA], [xB,yB], [xC,yC]])
+	p = Polygon(pts, closed=False)
+	ax = plt.gca()
+	ax.add_patch(p)
+	ax.set_xlim(xA-3,xB+3)
+	ax.set_ylim(yA-3,yB+3)
+	plt.show()
 
 
 	o = a + b + c
 	#obliczamy pole trojkata z wzoru herona
-	p = sqr(o * (o - a) * (o - b) * (o -c)) 
+	p = math.sqrt(o * (o - a) * (o - b) * (o -c)) 
 	print("P= ", p)
 	print("Ob= ", o)
 
