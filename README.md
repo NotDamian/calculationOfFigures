@@ -4,7 +4,7 @@ Project for college which one calculated field and circumference. Also show how 
 ## General info
 Program napisany w celu zalicznia zajęc Podstawy Pythona.</br>
 Program oblicza pole oraz objętość po podania współżędnych (x,y) wieszchołków danej figury.</br>
-Obicza pole i objetosc figur:
+Obicza pole i objetosc figur:</br>
 -koło</br>
 -trójkąt</br>
 -kwadrat</br>
